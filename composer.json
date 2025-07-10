@@ -1,0 +1,25 @@
+{
+    "name": "file-processor/app",
+    "description": "CSV File Processor with Currency Conversion",
+    "type": "project",
+    "require": {
+        "php": ">=8.0",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*"
+    },
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "mkdir -p uploads",
+            "chmod 777 uploads"
+        ],
+        "phpcbf": "vendor/bin/phpcbf --standard=PSR12 ."
+    }
+}
