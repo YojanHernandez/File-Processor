@@ -13,6 +13,10 @@ RUN if [ -f composer.json ]; then composer install --no-dev --optimize-autoloade
 # Uploads directory
 RUN mkdir -p uploads && chmod 777 uploads
 
+# Enable Apache rewrite module
+# This is necessary for .htaccess files to work correctly
+RUN a2enmod rewrite
+
 # Expose port 80 (Render will map to $PORT)
 EXPOSE 80
 

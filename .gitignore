@@ -41,7 +41,6 @@ node_modules/
 
 # Docker (if any)
 .dockerignore
-Dockerfile
 
 # Build artifacts
 dist/
