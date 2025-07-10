@@ -37,7 +37,7 @@ class FileProcessor
 
         if ($handle === false) {
             throw new \RuntimeException('Unable to open file: ' . $this->filepath);
-        }
+        } 
         $this->headers = fgetcsv($handle);
 
         if (!$this->headers) {
@@ -60,9 +60,13 @@ class FileProcessor
             }
         }
 
-        $row = fgetcsv($handle);
+        $rows = [];
+        while (($row = fgetcsv($handle)) !== false) {
+            $rows[] = $row;
+        }
+        fclose($handle);
 
-        while ($row !== false) {
+        foreach ($rows as $row) {
             $cost = (float)$row[$indexes['cost']];
             $price = (float)$row[$indexes['price']];
             $qty = (int)$row[$indexes['qty']];
@@ -77,12 +81,7 @@ class FileProcessor
                 'margin' => $margin,
                 'profit' => $totalProfit
             ];
-
-            // Read the next row
-            $row = fgetcsv($handle);
         }
-
-        fclose($handle);
 
         return $this->data;
     }
