@@ -12,8 +12,7 @@ WORKDIR /var/www/html
 
 COPY . .
 
-# Install Composer dependencies (with validation and verbose output for debugging)
-RUN ls -l && composer validate && if [ -f composer.json ]; then composer install --no-dev --optimize-autoloader -v; fi
+RUN composer install --no-dev --optimize-autoloader -v
 
 # Enable Apache mod_rewrite
 RUN a2enmod rewrite

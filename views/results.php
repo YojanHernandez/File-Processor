@@ -6,9 +6,6 @@ require_once __DIR__ . '/../vendor/autoload.php';
 require_once '../classes/FileProcessor.php';
 require_once '../classes/CurrencyConverter.php';
 
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
-
 $error = null;
 $rows = [];
 $cadRate = 1.0;
