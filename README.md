@@ -6,6 +6,12 @@ This application allows users to upload a CSV file with product data, calculates
 
 ---
 
+## Live Demo
+
+Access the deployed application here: [https://file-processor-rkmt.onrender.com/](https://file-processor-rkmt.onrender.com/)
+
+---
+
 ## Screenshots
 
 ### Upload Form
